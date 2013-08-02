@@ -1,3 +1,7 @@
+### Fork by D.Corbacho
+This is a fork of TinyNav 1.1. The only difference is that the 'header' option is only added to the the menu if there is no active item in the menu.
+For example the header could be "Select:". But we don't want to be shown if something was already selected.
+
 # TinyNav.js
 ### Responsive navigation plugin that weighs just 443 bytes
 
