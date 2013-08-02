@@ -23,10 +23,15 @@
 
       if ($nav.is('ul,ol')) {
 
+        var activeOptionIndex = $(l_namespace_i + ' li')
+            .index($(l_namespace_i + ' li.' + settings.active));
+            
+        
         if (settings.header !== '') {
-          $select.append(
-            $('<option/>').text(settings.header)
-          );
+          if (!activeOptionIndex == -1) {
+            $select.append($('<option/>').text(settings.header));
+            activeOptionIndex = 0;
+          }
         }
 
         // Build options
@@ -48,10 +53,8 @@
         $select.append(options);
 
         // Select the active item
-        if (!settings.header) {
-          $select
-            .find(':eq(' + $(l_namespace_i + ' li')
-            .index($(l_namespace_i + ' li.' + settings.active)) + ')')
+        if (activeOptionIndex) {
+          $select.find(':eq(' + activeOptionIndex + ')')
             .attr('selected', true);
         }
 
